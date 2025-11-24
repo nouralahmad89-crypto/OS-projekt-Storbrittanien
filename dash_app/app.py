@@ -118,9 +118,9 @@ tabs = dbc.Container([
         ]),
 
         # --- UPPGIFT 2 TAB ---
-        dcc.Tab(label="Uppgift 2 - Sporter", children=[
+        dcc.Tab(label="Sportstatistik", children=[
             dbc.Container([
-                html.H2("Uppgift 2 - Sport Analysis", className="text-success mb-4", style={"textAlign": "center"}),
+                html.H2("Sport Analysis", className="text-success mb-4", style={"textAlign": "center"}),
 
                 # Controls Card
                 dbc.Card([
