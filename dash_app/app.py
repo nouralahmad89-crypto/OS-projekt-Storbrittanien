@@ -59,12 +59,12 @@ tabs = dbc.Container([
                         dcc.Dropdown(
                             id="gbr_graph_selector",
                             options=[
-                                {"label": "Top 10 Sports by Medals – Stacked Bar", "value": "top_sports"},
-                                {"label": "Medals per OS – Bar Chart", "value": "medals_per_os"},
-                                {"label": "Medals Over Time – Line Plot", "value": "medals_over_time"},
-                                {"label": "Medal Types Distribution – Pie Chart", "value": "medal_types_pie"},
-                                {"label": "Age Distribution – Histogram", "value": "age_hist"},
-                                {"label": "Gender Distribution – Pie Chart", "value": "gender_pie"},
+                                {"label": "Top 10 Sports by Medals - Stacked Bar", "value": "top_sports"},
+                                {"label": "Medals per OS - Bar Chart", "value": "medals_per_os"},
+                                {"label": "Medals Over Time - Line Plot", "value": "medals_over_time"},
+                                {"label": "Medal Types Distribution - Pie Chart", "value": "medal_types_pie"},
+                                {"label": "Age Distribution - Histogram", "value": "age_hist"},
+                                {"label": "Gender Distribution - Pie Chart", "value": "gender_pie"},
                             ],
                             value="top_sports"
                         ),
