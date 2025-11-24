@@ -118,9 +118,9 @@ tabs = dbc.Container([
         ]),
 
         # --- UPPGIFT 2 TAB ---
-        dcc.Tab(label="🏅 Uppgift 2 – Sporter", children=[
+        dcc.Tab(label="Uppgift 2 - Sporter", children=[
             dbc.Container([
-                html.H2("Uppgift 2 – Sport Analysis", className="text-success mb-4", style={"textAlign": "center"}),
+                html.H2("Uppgift 2 - Sport Analysis", className="text-success mb-4", style={"textAlign": "center"}),
 
                 # Controls Card
                 dbc.Card([
@@ -129,11 +129,11 @@ tabs = dbc.Container([
                         dcc.Dropdown(
                             id="sport_graph_selector",
                             options=[
-                                {"label": "Top Athletes by Medals – Bar Chart", "value": "top_athletes"},
-                                {"label": "Medals per Year – Line Plot", "value": "medals_per_year"},
-                                {"label": "Age Distribution – Histogram", "value": "age_hist"},
-                                {"label": "Gender Distribution – Pie Chart", "value": "gender_pie"},
-                                {"label": "Medal Types Breakdown – Stacked Bar", "value": "medal_breakdown"},
+                                {"label": "Top Athletes by Medals - Bar Chart", "value": "top_athletes"},
+                                {"label": "Top 10 Countries by Medals - Bar Chart", "value": "top_countries"},
+                                {"label": "Age Distribution - Histogram", "value": "age_hist"},
+                                {"label": "Gender Distribution - Pie Chart", "value": "gender_pie"},
+                                {"label": "Medal Types Breakdown - Stacked Bar", "value": "medal_breakdown"},
                             ],
                             value="top_athletes"
                         ),
@@ -266,10 +266,11 @@ def update_sport_graph(sport, graph_type):
         top_athletes = sport_df[sport_df["Medal"].notna()].groupby("Name")["Medal"].count().reset_index(name="Medals").sort_values("Medals", ascending=False).head(10)
         fig = px.bar(top_athletes, x="Name", y="Medals", color="Medals", color_continuous_scale=px.colors.sequential.Viridis,
                      title=f"{sport} – Top Athletes by Medals")
-    elif graph_type == "medals_per_year":
-        per_year = sport_df[sport_df["Medal"].notna()].groupby("Year")["Medal"].count().reset_index(name="Medals")
-        fig = px.line(per_year, x="Year", y="Medals", markers=True, line_shape='spline', color_discrete_sequence=px.colors.qualitative.Plotly,
-                      title=f"{sport} – Medals per Year")
+    elif graph_type == "top_countries":
+        top_countries = sport_df[sport_df["Medal"].notna()].groupby("NOC")["Medal"].count().reset_index(name="Medals")
+        top_countries = top_countries.sort_values("Medals", ascending=False).head(10)
+        fig = px.bar(top_countries, x="NOC", y="Medals", color="Medals", color_continuous_scale=px.colors.sequential.Viridis,
+                     title=f"{sport} – Top 10 Countries by Medals")
     elif graph_type == "age_hist":
         age_data = sport_df[sport_df["Age"].notna()]
         fig = px.histogram(age_data, x="Age", nbins=40, color_discrete_sequence=px.colors.qualitative.Bold,
