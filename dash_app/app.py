@@ -5,6 +5,7 @@ import dash_bootstrap_components as dbc
 from load_dataset import load_data
 
 # --- LOAD DATA ---
+
 merged, gbr_data = load_data()
 df = merged
 gbr = gbr_data["gbr"]
@@ -17,7 +18,7 @@ def placeholder_fig(title):
 # --- APP ---
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.FLATLY])
 app.title = "Olympics Dashboard"
-
+server= app.server
 # --- NAVBAR ---
 navbar = dbc.NavbarSimple(
     brand="Olympics Dashboard 🏅",
