@@ -35,19 +35,19 @@ app.layout = dbc.Container([
                 html.H2("Välkommen till vår OS-dashboard"),
 
                 dcc.Markdown("""
-                Detta dashboard visar resultat från uppgift 1 och uppgift 2.
-                Navigera i flikarna ovan för att se olika visualiseringar.
+                This dashboard shows results from Great Britain and Other Countries.
+                Navigate the tabs above to view different visualizations.
                 """)
             ], className="p-4")
         ]),
 
         # ---------------- TAB 2: UPPGIFT 1 -------------------
-        dcc.Tab(label="🇬🇧 Uppgift 1 – GBR", children=[
+        dcc.Tab(label="GBR", children=[
             html.Div([
 
-                html.H2("Uppgift 1 – Great Britain (GBR)"),
+                html.H2(" Great Britain (GBR)"),
 
-                html.H4("Välj visualisering"),
+                html.H4("choose visualisering"),
                 dcc.Dropdown(
                     id="gbr_graph_selector",
                     options=[
@@ -75,7 +75,7 @@ app.layout = dbc.Container([
 
                 html.Br(),
 
-                html.H4("Välj tidsintervall"),
+                html.H4("Choose Time Period"),
                 dcc.RangeSlider(
                     id="gbr_year_slider",
                     min=int(gbr["Year"].min()),
