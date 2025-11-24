@@ -93,45 +93,27 @@ app.layout = dbc.Container([
         ]),
 
         # ---------------- TAB 3: UPPGIFT 2 -------------------
-        dcc.Tab(label="🏅 Uppgift 2 – Sporter", children=[
-            html.Div([
 
-                html.H2("Uppgift 2 – Sportanalys"),
+        dcc.Tab(
+    label="🏅 Uppgift 2 – Sporter",
+    children=[
+        html.Div([
 
-                html.H4("Välj sport"),
-                dcc.Dropdown(
-                    id="sport_selector",
-                    options=[{"label": s, "value": s} for s in sorted(df["Sport"].dropna().unique())],
-                    value="Athletics"
-                ),
+            html.H2("Uppgift 2 – Sportanalys"),
 
-                html.Br(),
+            html.H4("Välj sport"),
+            dcc.Dropdown(
+                id="sport_selector",
+                options=[
+                    {"label": s, "value": s}
+                    for s in sorted(df["Sport"].dropna().unique())
+                    if s in ["Athletics", "Cycling", "Swimming", "Football"]
+                ],
+                value="Athletics"
+            ),
 
-                html.H4("Välj land (NOC)"),
-                dcc.Dropdown(
-                    id="country_selector",
-                    options=[{"label": n, "value": n} for n in sorted(df["NOC"].dropna().unique())],
-                    value="USA"
-                ),
-
-                html.Br(),
-
-                html.H4("Välj diagramtyp"),
-                dcc.RadioItems(
-                    id="sport_plot_type",
-                    options=[
-                        {"label": "Histogram", "value": "hist"},
-                        {"label": "Boxplot", "value": "box"}
-                    ],
-                    value="hist"
-                ),
-
-                html.Hr(),
-
-                dcc.Graph(id="sport_dynamic_graph")
-
-            ], className="p-4")
-        ])
+        ], className="p-4")
+    ])
 
     ])
 ], fluid=True)
