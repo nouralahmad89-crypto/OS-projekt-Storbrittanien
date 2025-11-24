@@ -6,8 +6,8 @@ def load_data():
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Sätt path till data-mappen en nivå upp
-    athletes_file = os.path.join(base_dir, "..", "data", "athlete_events.csv")
-    noc_file = os.path.join(base_dir, "..", "data", "noc_regions.csv")
+    athletes_file = os.path.join(base_dir, "data", "athlete_events.csv")
+    noc_file = os.path.join(base_dir, "data", "noc_regions.csv")
 
     # Läs CSV-filer
     athletes = pd.read_csv(athletes_file)
