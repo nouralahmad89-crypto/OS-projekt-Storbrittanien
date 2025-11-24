@@ -32,11 +32,11 @@ app.layout = dbc.Container([
         # ---------------- TAB 1: HOME -------------------
         dcc.Tab(label="🏠 Home", children=[
             html.Div([
-                html.H2("Välkommen till vår OS-dashboard"),
+                html.H2("Welcome to our Olympics Dashboard"),
 
                 dcc.Markdown("""
-                This dashboard shows results from Great Britain and Other Countries.
-                Navigate the tabs above to view different visualizations.
+                This dashboard focuses on results from Great Britain.
+                Use the tabs above to explore different visualizations and comparisons with other countries.
                 """)
             ], className="p-4")
         ]),
