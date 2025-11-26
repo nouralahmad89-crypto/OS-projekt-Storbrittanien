@@ -5,7 +5,7 @@ def load_data():
     # Hämta mappen där app.py ligger
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # Sätt path till data-mappen en nivå upp
+    # Sätt path till data-mappen .
     athletes_file = os.path.join(base_dir, "data", "athlete_events.csv")
     noc_file = os.path.join(base_dir, "data", "noc_regions.csv")
 
